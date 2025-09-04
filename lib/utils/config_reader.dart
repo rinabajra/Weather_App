@@ -29,4 +29,8 @@ abstract class ConfigReader {
   static String getApiUrl() {
     return _config?['api_url'] as String;
   }
+
+  static String getApiKey() {
+    return _config?['api_key'] as String;
+  }
 }
