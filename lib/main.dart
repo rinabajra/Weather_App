@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:weather_app/core/services/network.service.dart';
 import 'package:weather_app/widgets/global/Resize.dart';
 
 import 'core/services/translations.service.dart';
@@ -20,6 +21,9 @@ Future<void> mainCommon(String env) async {
 
   await ConfigReader.initialize(env);
   await GetStorage.init();
+
+  await Get.putAsync(() async => NetworkService());
+  await Get.putAsync(() async => TranslationsService());
 
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -50,7 +54,6 @@ Future<void> mainCommon(String env) async {
         locale: WidgetsBinding.instance.platformDispatcher.locale,
         onReady: () async {
           await Get.updateLocale(Locale(kAppStorage.read(kLocale) ?? 'en'));
-          await Get.putAsync(() async => TranslationsService());
         },
         localizationsDelegates: const [
           GlobalMaterialLocalizations.delegate,

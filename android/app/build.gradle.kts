@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.weather_app"
+    namespace = "xk.weatherApp"
     compileSdk = 36
     ndkVersion = flutter.ndkVersion
 
@@ -15,30 +15,27 @@ android {
         create("dev") {
             dimension = "app"
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_dev"
-            manifestPlaceholders["deeplinkScheme"] = "com.example.weather_app.dev"
+            manifestPlaceholders["deeplinkScheme"] = "xk.weatherApp.dev"
             manifestPlaceholders["appName"] = "Weather App - DEV"
             applicationIdSuffix = ".dev"
-            
         }
         create("prod") {
             dimension = "app"
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher"
-            manifestPlaceholders["deeplinkScheme"] = "com.example.weather_app"
+            manifestPlaceholders["deeplinkScheme"] = "xk.weatherApp"
             manifestPlaceholders["appName"] = "Weather App"
         }
     }
-    
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
-    }
+    kotlinOptions { jvmTarget = JavaVersion.VERSION_11.toString() }
 
     defaultConfig {
-        applicationId = "com.example.weather_app"
+        applicationId = "xk.weatherApp"
         minSdk = 24
         targetSdk = 36
         versionCode = flutter.versionCode
@@ -54,6 +51,4 @@ android {
     }
 }
 
-flutter {
-    source = "../.."
-}
+flutter { source = "../.." }
