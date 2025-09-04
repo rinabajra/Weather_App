@@ -42,7 +42,7 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
-  Future<void> initAsync() async {
+  Future<void> initAsync({bool fetchNewData = false}) async {
     try {
       if (savedLatLong.isNotEmpty) {
         List<String> latLong = savedLatLong.split(',');
@@ -51,6 +51,7 @@ class HomeController extends GetxController {
           double.parse(latLong[1]),
           Get.find<TranslationsService>().locale ?? 'en',
           savedUnit(),
+          fetchNewData: fetchNewData,
         );
       } else {
         locationPermission = await getLocationPermission();
@@ -60,6 +61,7 @@ class HomeController extends GetxController {
             21.1655,
             Get.find<TranslationsService>().locale ?? 'en',
             savedUnit(),
+            fetchNewData: fetchNewData,
           );
         } else {
           await getForecast(
@@ -67,6 +69,7 @@ class HomeController extends GetxController {
             userLonPosition(),
             Get.find<TranslationsService>().locale ?? 'en',
             savedUnit(),
+            fetchNewData: fetchNewData,
           );
         }
       }

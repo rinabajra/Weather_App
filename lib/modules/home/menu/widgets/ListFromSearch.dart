@@ -15,25 +15,25 @@ class ListFromSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetX<MenuSettingsController>(
-      builder: (controller) => Container(
-        height: 140,
-        width: Get.width,
-        padding: EdgeInsets.only(top: 7.h),
-        margin: EdgeInsets.only(top: 5.h),
-        decoration: BoxDecoration(
-          color: AppColors.secondary,
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-              blurRadius: 3,
-              spreadRadius: 0,
-              offset: const Offset(0, 1),
-              color: AppColors.disabledGrey.withValues(alpha: 0.3),
-            ),
-          ],
-          borderRadius: BorderRadius.circular(12.h),
-        ),
-        child: controller.loading()
+    return Container(
+      height: 140,
+      width: Get.width,
+      padding: EdgeInsets.only(top: 7.h),
+      margin: EdgeInsets.only(top: 5.h),
+      decoration: BoxDecoration(
+        color: AppColors.secondary,
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            blurRadius: 3,
+            spreadRadius: 0,
+            offset: const Offset(0, 1),
+            color: AppColors.disabledGrey.withValues(alpha: 0.3),
+          ),
+        ],
+        borderRadius: BorderRadius.circular(12.h),
+      ),
+      child: Obx(
+        () => controller.loading()
             ? SpinKitFadingCircle(color: AppColors.main, size: 30)
             : controller.searchNames().isEmpty
             ? Poppins.medium(
