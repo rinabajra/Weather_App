@@ -1,0 +1,6 @@
+{
+    "flavor": "dev",
+    "api_version": "v1",
+    "api_url": "http://api.openweathermap.org",
+    "api_key": "ab65a2c83981c6469109f73031e1d100"
+}
