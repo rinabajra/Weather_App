@@ -51,7 +51,7 @@ The app is available in two flavors: dev (Development) and prod (Production), ev
 
 Notes: The design is based on the IOS weather app, the icons and images are generated with AI, the small weather icons are from OpenWeather api.
 
-For further questions, you can write me on email.
+For further questions or code and structure explanation, you can write me on email.
 
 
 
