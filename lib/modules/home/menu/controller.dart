@@ -95,12 +95,12 @@ class MenuSettingsController extends GetxController {
     );
   }
 
-  void changeUnit(UNITS unit) async {
+  Future<void> changeUnit(UNITS unit) async {
     kAppStorage.write(kSavedUnit, unit.name);
 
     Get.find<HomeController>().savedUnit(unit);
 
-    await Get.find<HomeController>().initAsync();
+    await Get.find<HomeController>().initAsync(fetchNewData: true);
   }
 
   @override

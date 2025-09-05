@@ -45,7 +45,8 @@ class UnitButton extends StatelessWidget {
       () => CustomInkWell(
         onTap: Get.find<HomeController>().savedUnit() == unit
             ? null
-            : () => Get.find<MenuSettingsController>().changeUnit(unit),
+            : () async =>
+                  await Get.find<MenuSettingsController>().changeUnit(unit),
         child: Poppins.black(
           unit.name.toUpperCase(),
           color: Get.find<HomeController>().savedUnit() == unit
